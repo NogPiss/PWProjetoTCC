@@ -1,0 +1,23 @@
+<!--
+<div class="loginContent">
+  <div class="Container">
+    <p class="texto">Login</p>
+    <input type="text" placeholder="Usuario" class="input">
+    <br>
+    <input type="text" placeholder="Senha" class="input">
+    <br>
+    <button class="botao">Realizar login</button>
+  </div>
+</div> -->
+
+<form [formGroup]="formularioLogin">
+  <div class="Container">
+    <p class="texto">Login</p>
+    <input type="text" formControlName="campoUsuario">
+    <br>
+    <input type="text" formControlName="campoSenha">
+    <br>
+    <button (click)="Enviar()">Entrar</button>
+  </div>
+</form>
+
