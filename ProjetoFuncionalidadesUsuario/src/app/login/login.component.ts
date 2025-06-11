@@ -29,8 +29,11 @@ export class LoginComponent {
     if(nomeUsuarioHtml == this.nomeOficial && senhaHtml == this.senhaOficial){
       alert("Usuario entrou :)");
     }
-    else{
-      alert("algo está errado :(");
+    else if(nomeUsuarioHtml != this.nomeOficial){
+      alert("Username está errado :(");
+    }
+    else if(senhaHtml != this.senhaOficial){
+      alert("senha está errada :(");
     }
   }
 }

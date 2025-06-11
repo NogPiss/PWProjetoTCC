@@ -1,0 +1,19 @@
+*{
+
+
+}
+
+.Container{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+}
+
+.loginContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input{
+        margin: 0px;
+    }
+}
