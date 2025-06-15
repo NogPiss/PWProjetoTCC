@@ -5,8 +5,9 @@
 
 .Container{
     background-color: aqua;
-    display: flex;
+    display: grid;
     justify-content: center;
+    
 }
 
 .loginContent{
