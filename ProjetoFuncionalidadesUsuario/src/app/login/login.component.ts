@@ -18,36 +18,37 @@ export class LoginComponent {
       nome: 'Tadeu',
       senha: '123',
       email: 'Tadeu@gmail.com'
+    },
+    {
+      nome: 'HermelinaLinda',
+      senha: '1234',
+      email: 'hermebonita@gmail.com'
     }
   ]; 
 
-  nomeOficial: string = "Tadeu";
-  senhaOficial:string = "123";
   formularioLogin: FormGroup;
 
   constructor(private fb: FormBuilder){
     this.formularioLogin = this.fb.group({
-      campoUsuario: ['', [Validators.required, Validators.pattern("Tadeu")]],
-      campoSenha: ['', [Validators.required, Validators.pattern("123")]]
+      campoUsuario: ['', [Validators.required]],
+      campoSenha: ['', [Validators.required]]
     });
   }
 
   Enviar(){
     let nomeUsuarioEmailHtml = this.formularioLogin.get("campoUsuario")?.value
     let senhaHtml = this.formularioLogin.get("campoSenha")?.value
-/*
-    if(nomeUsuarioEmailHtml == this.nomeOficial && senhaHtml == this.senhaOficial){
-      alert("Usuario entrou :)");
-    }
-    else if(nomeUsuarioEmailHtml != this.nomeOficial){
-      alert("O nome de usuario está errado :(");
-    }
-    else if(senhaHtml != this.senhaOficial){
-      alert("A senha está errada :(");
-    }
-*/
-    for(){
 
+
+    const usuarioLogin = new Usuario(nomeUsuarioEmailHtml, senhaHtml, 'Tadeu@gmail.com');
+
+    if(this.usuarios.find(u => (u.nome == usuarioLogin.nome || usuarioLogin.nome == u.email) && u.senha == usuarioLogin.senha)){
+      alert("Usuario Encontrado!! :)");
+    }
+    else{
+      alert("Usuario não encontrado  :(");
+      this.formularioLogin.get("campoUsuario")?.setValue('')
+      this.formularioLogin.get("campoSenha")?.setValue('')
     }
   }
 }

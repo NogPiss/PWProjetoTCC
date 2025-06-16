@@ -1,12 +1,17 @@
-<form [formGroup]="formularioCadastro" class="Container">
-    <div>
-        <p>Cadastro</p>
-        <input type="text" placeholder="Nome De Usuario" formControlName="campoNomeUsuario">
-        <br>
-        <input type="text" placeholder="Email" formControlName="campoEmail">
-        <br>
-        <input type="text" placeholder="Senha" formControlName="camposenhaUsuario">
-        <br>
-        <button (click)="Cadastrar()">Cadastrar</button>
-    </div>
-</form>
+
+<div class="fullscreen-div">
+    <form [formGroup]="formularioCadastro" class="Container">
+        <div class="CadastroContent">
+            <p>Cadastro</p>
+            <input type="text" placeholder="Nome De Usuario" formControlName="campoNomeUsuario">
+            <br>
+            <input type="text" placeholder="Email" formControlName="campoEmail">
+            <br>
+            <input type="text" placeholder="Senha" formControlName="camposenhaUsuario">
+            <br>
+            <button (click)="Cadastrar()">Cadastrar</button>
+            <br>
+            <a routerLink="">voltar</a>
+        </div>
+    </form>
+</div>

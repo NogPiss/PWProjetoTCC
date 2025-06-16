@@ -11,16 +11,14 @@
 </div> -->
 <div class="fullscreen-div">
   <form [formGroup]="formularioLogin" class="Container">
-    <div class="teste1"></div>
     <div class="loginContent">
       <p class="texto">Login</p>
-      <input type="text" formControlName="campoUsuario" placeholder="Nome de usuario">
+      <input type="text" formControlName="campoUsuario" placeholder="Nome de usuario ou Email">
       <br>
       <input type="password" formControlName="campoSenha" placeholder="Senha">
       <br>
       <button (click)="Enviar()">Entrar</button>
       <a routerLink="/cadastro">cadastrar</a>
     </div>
-    <div class="teste2"></div>
   </form>
 </div>
