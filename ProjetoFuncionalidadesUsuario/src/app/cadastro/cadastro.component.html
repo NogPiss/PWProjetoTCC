@@ -1,1 +1,9 @@
-
+<form [formGroup]="formularioCadastro" class="Container">
+    <div>
+        <p>Cadastro</p>
+        <input type="text" placeholder="Nome De Usuario" formControlName="campoNomeUsuario">
+        <input type="text" placeholder="Email" formControlName="campoEmail">
+        <input type="text" placeholder="Senha" formControlName="camposenhaUsuario">
+        <button (click)="Cadastrar()">Cadastrar</button>
+    </div>
+</form>

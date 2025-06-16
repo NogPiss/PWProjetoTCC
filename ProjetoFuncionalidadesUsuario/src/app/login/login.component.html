@@ -11,14 +11,16 @@
 </div> -->
 
 <form [formGroup]="formularioLogin" class="Container">
+  <div class="teste1"></div>
   <div class="loginContent">
     <p class="texto">Login</p>
     <input type="text" formControlName="campoUsuario">
     <br>
-    <input type="text" formControlName="campoSenha">
+    <input type="password" formControlName="campoSenha">
     <br>
     <button (click)="Enviar()">Entrar</button>
     <a routerLink="/cadastro">cadastrar</a>
   </div>
+  <div class="teste2"></div>
 </form>
 

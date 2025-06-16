@@ -17,8 +17,12 @@ export class CadastroComponent {
   constructor(private fb: FormBuilder){
     this.formularioCadastro = this.fb.group({
       campoNomeUsuario: ['', [Validators.required, Validators.maxLength(8)]],
-      camposenhaUsuario: [],
-      campoEmail: []
+      camposenhaUsuario: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
+      campoEmail: ['', [Validators.required, Validators.email]]
     });
+  }
+
+  Cadastrar(){
+    
   }
 }

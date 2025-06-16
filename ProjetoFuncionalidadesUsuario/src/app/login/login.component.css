@@ -1,14 +1,16 @@
 *{
-
+    display: flex;
 
 }
 
-.Container{
-    background-color: aqua;
-    display: grid;
-    justify-content: center;
-    
+.Container {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+  width: 13%;
 }
+
 
 .loginContent{
     display: flex;
@@ -17,4 +19,14 @@
     input{
         margin: 0px;
     }
+}
+
+.teste1{
+    width: 10px;
+    background-color: blue;
+}
+
+.teste2{
+    width: 10px;
+    background-color: brown;
 }
