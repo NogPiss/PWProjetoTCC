@@ -23,6 +23,8 @@ export class CadastroComponent {
   }
 
   Cadastrar(){
-    
+    let nomeCadastro = this.formularioCadastro.get("campoNomeUsuario")?.value
+    let SenhaCadastro = this.formularioCadastro.get("camposenhaUsuario")?.value
+    let emailCadastro = this.formularioCadastro.get("campoEmail")?.value
   }
 }

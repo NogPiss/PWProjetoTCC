@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { Usuario } from '../model/Usuario';
+import { on } from 'events';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,14 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+  usuarios: Usuario[] = [
+    {
+      nome: 'Tadeu',
+      senha: '123',
+      email: 'Tadeu@gmail.com'
+    }
+  ]; 
 
   nomeOficial: string = "Tadeu";
   senhaOficial:string = "123";
@@ -23,17 +33,21 @@ export class LoginComponent {
   }
 
   Enviar(){
-    let nomeUsuarioHtml = this.formularioLogin.get("campoUsuario")?.value
+    let nomeUsuarioEmailHtml = this.formularioLogin.get("campoUsuario")?.value
     let senhaHtml = this.formularioLogin.get("campoSenha")?.value
-
-    if(nomeUsuarioHtml == this.nomeOficial && senhaHtml == this.senhaOficial){
+/*
+    if(nomeUsuarioEmailHtml == this.nomeOficial && senhaHtml == this.senhaOficial){
       alert("Usuario entrou :)");
     }
-    else if(nomeUsuarioHtml != this.nomeOficial){
-      alert("Username está errado :(");
+    else if(nomeUsuarioEmailHtml != this.nomeOficial){
+      alert("O nome de usuario está errado :(");
     }
     else if(senhaHtml != this.senhaOficial){
-      alert("senha está errada :(");
+      alert("A senha está errada :(");
+    }
+*/
+    for(){
+
     }
   }
 }
