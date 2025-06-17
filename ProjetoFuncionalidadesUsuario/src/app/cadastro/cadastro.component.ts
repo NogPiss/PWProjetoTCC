@@ -19,7 +19,8 @@ export class CadastroComponent {
     this.formularioCadastro = this.fb.group({
       campoNomeUsuario: ['', [Validators.required, Validators.maxLength(10)]],
       camposenhaUsuario: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
-      campoEmail: ['', [Validators.required, Validators.email]]
+      campoEmail: ['', [Validators.required, Validators.email]],
+      campoconfirmasenhaUsuario: ['', [Validators.required]]
     });
   }
 
@@ -27,11 +28,12 @@ export class CadastroComponent {
     let nomeCadastro = this.formularioCadastro.get("campoNomeUsuario")?.value;
     let SenhaCadastro = this.formularioCadastro.get("camposenhaUsuario")?.value;
     let emailCadastro = this.formularioCadastro.get("campoEmail")?.value;
+    let confirmaSenha = this.formularioCadastro.get("campoconfirmasenhaUsuario")?.value;
 
     const usuarioCadastro = new Usuario(nomeCadastro, SenhaCadastro, emailCadastro);
 
     if(usuarioCadastro.nome == null || usuarioCadastro.nome.length > 10 ){
-      
+
     }
   }
 }

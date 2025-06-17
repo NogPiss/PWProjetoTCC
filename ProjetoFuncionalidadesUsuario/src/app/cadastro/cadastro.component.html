@@ -4,14 +4,53 @@
         <div class="CadastroContent">
             <p>Cadastro</p>
             <input type="text" placeholder="Nome De Usuario" formControlName="campoNomeUsuario">
+            @if (formularioCadastro.get("campoNomeUsuario")?.touched && formularioCadastro.get("campoNomeUsuario")?.invalid) {
+              <div>
+              @if (formularioCadastro.get("campoNomeUsuario")?.errors?.['required']) {
+                <small>Campo obrigatorio</small>
+              }
+              </div>
+            }
             <br>
             <input type="text" placeholder="Email" formControlName="campoEmail">
+            @if (formularioCadastro.get("campoEmail")?.touched && formularioCadastro.get("campoEmail")?.invalid) {
+              <div>
+              @if (formularioCadastro.get("campoEmail")?.errors?.['required']) {
+                <small>Campo obrigatorio</small>
+              }
+              @if (formularioCadastro.get("campoEmail")?.errors?.['email']) {
+                <small>Email inválido</small>
+              }
+              </div>
+            }
             <br>
             <input type="text" placeholder="Senha" formControlName="camposenhaUsuario">
+            @if (formularioCadastro.get("camposenhaUsuario")?.touched && formularioCadastro.get("camposenhaUsuario")?.invalid) {
+              <div>
+              @if (formularioCadastro.get("camposenhaUsuario")?.errors?.['required']) {
+                <small>Campo obrigatorio</small>
+              }
+              @if (formularioCadastro.get("camposenhaUsuario")?.errors?.['pattern']) {
+                <small>Senha inválida</small>
+              }
+              </div>
+            }
+            <br>
+            <input type="text" placeholder="ConfirmarSenha" formControlName="campoconfirmasenhaUsuario">
+            @if (formularioCadastro.get("campoconfirmasenhaUsuario")?.touched && formularioCadastro.get("campoconfirmasenhaUsuario")?.invalid) {
+              <div>
+              @if (formularioCadastro.get("campoconfirmasenhaUsuario")?.errors?.['required']) {
+                <small>Campo obrigatorio</small>
+              }
+              @else if (formularioCadastro.get("camposenhaUsuario")?.value != formularioCadastro.get("campoconfirmasenhaUsuario")) {
+                <small>Senha errada</small>
+              }
+              </div>
+            }
             <br>
             <button (click)="Cadastrar()">Cadastrar</button>
             <br>
-            <a routerLink="">voltar</a>
+            <a routerLink="">voltar</a> 
         </div>
     </form>
 </div>
