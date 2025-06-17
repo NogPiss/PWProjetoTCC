@@ -42,7 +42,8 @@
               @if (formularioCadastro.get("campoconfirmasenhaUsuario")?.errors?.['required']) {
                 <small>Campo obrigatorio</small>
               }
-              @else if (formularioCadastro.get("camposenhaUsuario")?.value != formularioCadastro.get("campoconfirmasenhaUsuario")) {
+              @if (formularioCadastro.get("camposenhaUsuario")?.value != formularioCadastro.get("campoconfirmasenhaUsuario")?.value) {
+                <br>
                 <small>Senha errada</small>
               }
               </div>
@@ -50,7 +51,7 @@
             <br>
             <button (click)="Cadastrar()">Cadastrar</button>
             <br>
-            <a routerLink="">voltar</a> 
+            <a routerLink="">voltar</a>
         </div>
     </form>
 </div>

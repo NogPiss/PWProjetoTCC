@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { validateHeaderName } from 'http';
 import { Usuario } from '../model/Usuario';
@@ -22,6 +22,16 @@ export class CadastroComponent {
       campoEmail: ['', [Validators.required, Validators.email]],
       campoconfirmasenhaUsuario: ['', [Validators.required]]
     });
+  }
+
+  mesmaSenhaValidator: ValidatorFn = (formGroup: AbstractControl) : ValidationErrors | null => {
+    let senha = formGroup.get("camposenhaUsuario")?.value
+    let confirmaSenha = formGroup.get("camposenhaUsuario")?.get("campoconfirmasenhaUsuario")?.value
+
+    if (senha == confirmaSenha){
+      return{senhasDiferentes: true}
+    }
+    return null;
   }
 
   Cadastrar(){
