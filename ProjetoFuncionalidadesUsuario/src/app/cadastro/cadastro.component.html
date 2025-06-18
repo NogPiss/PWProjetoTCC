@@ -9,6 +9,10 @@
               @if (formularioCadastro.get("campoNomeUsuario")?.errors?.['required']) {
                 <small>Campo obrigatorio</small>
               }
+              
+              @if (formularioCadastro.get("campoNomeUsuario")?.errors?.["maxlength"]) {
+                <small>Maximo de 10 caracteres</small>
+              }
               </div>
             }
             <br>

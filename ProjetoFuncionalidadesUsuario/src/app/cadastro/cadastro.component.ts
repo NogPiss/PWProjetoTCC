@@ -14,7 +14,7 @@ import { CompartilhamentoService } from '../compartilhamento.service';
 })
 export class CadastroComponent {
 
-  usuariosRecebido: Usuario[] = [];
+  usuarios: Usuario[] = [];
 
 
   formularioCadastro: FormGroup;
@@ -29,7 +29,7 @@ export class CadastroComponent {
   }
 
   ngOnInit(){
-    this.usuariosRecebido = this.compartilhamentoService.getusarios();
+    this.usuarios = this.compartilhamentoService.getUsuarios();
   }
 
   mesmaSenhaValidator: ValidatorFn = (formGroup: AbstractControl) : ValidationErrors | null => {
@@ -52,8 +52,17 @@ export class CadastroComponent {
 
     if(this.formularioCadastro.valid){
       /* Cadastro do usuario colocando na lista */
-
-      alert("Usuario cadastrado")
+      if(confirmaSenha != SenhaCadastro){
+        alert("A senha permanece errada");
+        this.formularioCadastro.get("campoconfirmasenhaUsuario")?.setValue("")
+      }
+      else{
+        this.compartilhamentoService.setUsuarios(usuarioCadastro);
+        alert("Usuario cadastrado")   
+      }
+    }
+    else{
+      alert("Usuario não cadastrado")
     }
   }
 }

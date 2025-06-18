@@ -7,15 +7,27 @@ import { Usuario } from './model/Usuario';
 })
 export class CompartilhamentoService {
 
-private usuarios: Usuario[] = [];
+private usuarios: Usuario[] = [
+      {
+      nome: 'Tadeu',
+      senha: '123',
+      email: 'Tadeu@gmail.com'
+    },
+    {
+      nome: 'HermelinaLinda',
+      senha: '1234',
+      email: 'hermebonita@gmail.com'
+    }
+
+];
 
   constructor() { }
 
-  setUsuarios(novausuarios: any[]) {
-  this.usuarios = novausuarios;
+  setUsuarios(novausuario: Usuario) {
+    this.usuarios.push(novausuario)
   }
 
-  getusarios(): any[] {
+  getUsuarios(): Usuario[] {
     return this.usuarios;
   }
 }

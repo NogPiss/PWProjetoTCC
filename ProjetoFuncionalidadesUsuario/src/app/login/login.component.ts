@@ -14,18 +14,7 @@ import { CompartilhamentoService } from '../compartilhamento.service';
 })
 export class LoginComponent {
 
-  usuarios: Usuario[] = [
-    {
-      nome: 'Tadeu',
-      senha: '123',
-      email: 'Tadeu@gmail.com'
-    },
-    {
-      nome: 'HermelinaLinda',
-      senha: '1234',
-      email: 'hermebonita@gmail.com'
-    }
-  ];
+  usuarios: Usuario[] = [];
 
   formularioLogin: FormGroup;
 
@@ -37,7 +26,7 @@ export class LoginComponent {
   }
 
   ngOnInit(){
-    this.compartilhamentoService.setUsuarios(this.usuarios);
+    this.usuarios = this.compartilhamentoService.getUsuarios();
   }
 
   Enviar(){
@@ -45,10 +34,12 @@ export class LoginComponent {
     let senhaHtml = this.formularioLogin.get("campoSenha")?.value
 
 
-    const usuarioLogin = new Usuario(nomeUsuarioEmailHtml, senhaHtml, 'Tadeu@gmail.com');
+    const usuarioLogin = new Usuario(nomeUsuarioEmailHtml, senhaHtml, '');
+
 
     if(this.usuarios.find(u => (u.nome == usuarioLogin.nome || usuarioLogin.nome == u.email) && u.senha == usuarioLogin.senha)){
-      alert("Usuario Encontrado!! :)");
+      alert("Usuario encontrado!! \nBem-vindo " + this.usuarios.find(u => (u.nome == usuarioLogin.nome || usuarioLogin.nome == u.email) && u.senha == usuarioLogin.senha)?.nome);
+      
     }
     else{
       alert("Usuario não encontrado  :(");
