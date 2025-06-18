@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { Usuario } from '../model/Usuario';
 import { on } from 'events';
+import { CompartilhamentoService } from '../compartilhamento.service';
 
 @Component({
   selector: 'app-login',
@@ -24,15 +25,19 @@ export class LoginComponent {
       senha: '1234',
       email: 'hermebonita@gmail.com'
     }
-  ]; 
+  ];
 
   formularioLogin: FormGroup;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private compartilhamentoService: CompartilhamentoService){
     this.formularioLogin = this.fb.group({
       campoUsuario: ['', [Validators.required]],
       campoSenha: ['', [Validators.required]]
     });
+  }
+
+  ngOnInit(){
+    this.compartilhamentoService.setUsuarios(this.usuarios);
   }
 
   Enviar(){
