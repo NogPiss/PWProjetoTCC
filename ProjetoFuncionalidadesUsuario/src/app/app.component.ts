@@ -5,6 +5,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { FuncionalidadeComponent } from './funcionalidade/funcionalidade.component';
 import { HomeComponent } from './home/home.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
+import { AtualizarComponent } from './atualizar/atualizar.component';
+import { DeletarComponent } from './deletar/deletar.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,9 @@ import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
     CadastroComponent,
     FuncionalidadeComponent,
     HomeComponent,
-    SobreNosComponent
+    SobreNosComponent,
+    AtualizarComponent,
+    DeletarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

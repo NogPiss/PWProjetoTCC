@@ -43,7 +43,7 @@ export class CadastroComponent {
   }
 
   Cadastrar(){
-    let nomeCadastro = this.formularioCadastro.get("campoNomeUsuario")?.value;
+    let nomeCadastro = this.formularioCadastro.get("campoNomeUsuario")?.value.toLocaleLowerCase().trim();
     let SenhaCadastro = this.formularioCadastro.get("camposenhaUsuario")?.value;
     let emailCadastro = this.formularioCadastro.get("campoEmail")?.value;
     let confirmaSenha = this.formularioCadastro.get("campoconfirmasenhaUsuario")?.value;
@@ -51,14 +51,18 @@ export class CadastroComponent {
     const usuarioCadastro = new Usuario(nomeCadastro, SenhaCadastro, emailCadastro);
 
     if(this.formularioCadastro.valid){
-      /* Cadastro do usuario colocando na lista */
       if(confirmaSenha != SenhaCadastro){
         alert("A senha permanece errada");
         this.formularioCadastro.get("campoconfirmasenhaUsuario")?.setValue("")
       }
       else{
-        this.compartilhamentoService.setUsuarios(usuarioCadastro);
-        alert("Usuario cadastrado")   
+        if(this.compartilhamentoService.getUsuarios().find(u => u.nome== usuarioCadastro.nome|| u.email == usuarioCadastro.email)){
+          alert("Esse usuario já existe");
+        }
+        else{
+          this.compartilhamentoService.setUsuarios(usuarioCadastro);
+          alert("Usuario cadastrado")
+        }   
       }
     }
     else{

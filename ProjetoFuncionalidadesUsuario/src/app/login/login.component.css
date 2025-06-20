@@ -7,7 +7,6 @@
 }
 
 .Container {
-  background-color: aliceblue;
   display: flex;
   justify-content: center;   
   align-items: center;
@@ -15,8 +14,6 @@
   border-radius: 10%;
   font-size: large;
   color: #7B7B7B;
-  border-color: black;
-  font-family: 'Courier New', Courier, monospace;
   border-color: black;
   border: 1px solid ;
   padding: 1%;

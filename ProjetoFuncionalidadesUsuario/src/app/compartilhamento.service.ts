@@ -9,12 +9,12 @@ export class CompartilhamentoService {
 
 private usuarios: Usuario[] = [
       {
-      nome: 'Tadeu',
+      nome: 'tadeu',
       senha: '123',
       email: 'Tadeu@gmail.com'
     },
     {
-      nome: 'HermelinaLinda',
+      nome: 'hermelinalinda',
       senha: '1234',
       email: 'hermebonita@gmail.com'
     }

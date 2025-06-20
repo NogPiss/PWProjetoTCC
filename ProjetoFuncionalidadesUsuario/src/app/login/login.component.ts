@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Usuario } from '../model/Usuario';
-import { on } from 'events';
 import { CompartilhamentoService } from '../compartilhamento.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class LoginComponent {
 
   formularioLogin: FormGroup;
 
-  constructor(private fb: FormBuilder, private compartilhamentoService: CompartilhamentoService){
+  constructor(private fb: FormBuilder, private compartilhamentoService: CompartilhamentoService, private router: Router){
     this.formularioLogin = this.fb.group({
       campoUsuario: ['', [Validators.required]],
       campoSenha: ['', [Validators.required]]
@@ -30,7 +29,7 @@ export class LoginComponent {
   }
 
   Enviar(){
-    let nomeUsuarioEmailHtml = this.formularioLogin.get("campoUsuario")?.value
+    let nomeUsuarioEmailHtml = this.formularioLogin.get("campoUsuario")?.value.toLocaleLowerCase().trim();
     let senhaHtml = this.formularioLogin.get("campoSenha")?.value
 
 
@@ -38,8 +37,8 @@ export class LoginComponent {
 
 
     if(this.usuarios.find(u => (u.nome == usuarioLogin.nome || usuarioLogin.nome == u.email) && u.senha == usuarioLogin.senha)){
-      alert("Usuario encontrado!! \nBem-vindo " + this.usuarios.find(u => (u.nome == usuarioLogin.nome || usuarioLogin.nome == u.email) && u.senha == usuarioLogin.senha)?.nome);
-      
+      alert("Usuario encontrado!! \nBem-vindo " + usuarioLogin.nome);
+      this.router.navigate(["/home"]);
     }
     else{
       alert("Usuario não encontrado  :(");

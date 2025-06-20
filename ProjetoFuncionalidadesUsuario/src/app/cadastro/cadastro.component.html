@@ -35,7 +35,7 @@
                 <small>Campo obrigatorio</small>
               }
               @if (formularioCadastro.get("camposenhaUsuario")?.errors?.['pattern']) {
-                <small>Senha inválida</small>
+                <small>Senha inválida<br>A senha deve ter:<br>1 caractere maiusculo<br>1 caractere minusculo<br>1 numero<br>1 caractere especial</small>
               }
               </div>
             }
