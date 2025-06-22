@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from "../login/login.component";
-import { CadastroComponent } from "../cadastro/cadastro.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-funcionalidade',
   standalone: true,
-  imports: [LoginComponent, CadastroComponent],
+  imports: [RouterLink],
   templateUrl: './funcionalidade.component.html',
   styleUrl: './funcionalidade.component.css'
 })

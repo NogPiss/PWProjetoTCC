@@ -19,7 +19,7 @@ export class CadastroComponent {
 
   formularioCadastro: FormGroup;
 
-  constructor(private fb: FormBuilder, private compartilhamentoService: CompartilhamentoService){
+  constructor(private fb: FormBuilder, private compartilhamentoService: CompartilhamentoService, private router: Router){
     this.formularioCadastro = this.fb.group({
       campoNomeUsuario: ['', [Validators.required, Validators.maxLength(10)]],
       camposenhaUsuario: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
@@ -43,6 +43,8 @@ export class CadastroComponent {
   }
 
   Cadastrar(){
+    this.usuarios = this.compartilhamentoService.getUsuarios();
+    
     let nomeCadastro = this.formularioCadastro.get("campoNomeUsuario")?.value.toLocaleLowerCase().trim();
     let SenhaCadastro = this.formularioCadastro.get("camposenhaUsuario")?.value;
     let emailCadastro = this.formularioCadastro.get("campoEmail")?.value;
@@ -56,12 +58,13 @@ export class CadastroComponent {
         this.formularioCadastro.get("campoconfirmasenhaUsuario")?.setValue("")
       }
       else{
-        if(this.compartilhamentoService.getUsuarios().find(u => u.nome== usuarioCadastro.nome|| u.email == usuarioCadastro.email)){
+        if(this.compartilhamentoService.getUsuarios().find(u => u.nome== usuarioCadastro.nome || u.email == usuarioCadastro.email)){
           alert("Esse usuario já existe");
         }
         else{
           this.compartilhamentoService.setUsuarios(usuarioCadastro);
           alert("Usuario cadastrado")
+          this.router.navigate(["/"])
         }   
       }
     }

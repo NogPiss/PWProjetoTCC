@@ -26,9 +26,11 @@ export class LoginComponent {
 
   ngOnInit(){
     this.usuarios = this.compartilhamentoService.getUsuarios();
+    console.log(this.usuarios)
   }
 
   Enviar(){
+    this.usuarios = this.compartilhamentoService.getUsuarios();
     let nomeUsuarioEmailHtml = this.formularioLogin.get("campoUsuario")?.value.toLocaleLowerCase().trim();
     let senhaHtml = this.formularioLogin.get("campoSenha")?.value
 
