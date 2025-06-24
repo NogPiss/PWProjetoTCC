@@ -26,7 +26,6 @@ export class LoginComponent {
 
   ngOnInit(){
     this.usuarios = this.compartilhamentoService.getUsuarios();
-    console.log(this.usuarios)
   }
 
   Enviar(){

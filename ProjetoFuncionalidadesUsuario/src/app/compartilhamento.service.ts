@@ -41,6 +41,7 @@ export class CompartilhamentoService {
   }
 
   deletarUsuario(usuarioAlvo: Usuario){
-    
+    const indexDoUsuario = this.usuarios.findIndex(u => u.nome == usuarioAlvo.nome)
+    this.usuarios.splice(indexDoUsuario, 1)
   }
 }
